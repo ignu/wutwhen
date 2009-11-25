@@ -24,7 +24,7 @@ class Session
   property :title,          String
   property :abstract,       Text
   property :url,            String
-  property :start,          DateTime
+  property :date,          DateTime
   property :created_at,     DateTime
   property :updated_at,     DateTime
   property :speaker_name,   String
@@ -38,6 +38,8 @@ class Session
        session.title = s.get("title")
        session.url = s.get("uri")
        session.abstract = s.get("abstract")
+       session.date = s.get_date("start")
+       session.speaker_name = s.get("speakername")
        sessions << session
     end
     sessions
@@ -48,5 +50,9 @@ end
 class Hpricot::Elem
   def get(field)
     self.search("/#{field}").first.children.first.raw_string.strip
+  end
+  
+  def get_date(field)
+    DateTime.strptime get(field) + "+00:00" 
   end
 end

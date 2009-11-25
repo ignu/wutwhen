@@ -20,6 +20,8 @@ describe "Sessions" do
       @sessions.first.url.should == 
         "/rest/sessions/The-case-for-Griffon-developing-desktop-applications-for-fun-and-profit"
       @sessions.first.abstract.match("Building a desktop application is a").blank?.should == false
+      @sessions.first.date.should == DateTime.civil(y=2009, m=2, d=1, h=10, min=0)
+      @sessions.first.speaker_name.should=="Andres Almiray"
     end
     
   end

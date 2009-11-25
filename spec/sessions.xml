@@ -13,7 +13,7 @@ The case for Griffon: developing desktop applications for fun and profit
 <Abstract>
 Building a desktop application is a hard task, there are some many things to keep track of that many projects simply fail to meet their goals. Setting up the project structure keeping each artifact on a well identified location given its responsibility and type, defining the base schema for managing the application's life cycle, making sure the build is properly setup, and more. These are recurring tasks that should be handled by a tool or better yet, a framework. Griffon is such a framework. Inspired by the Grails framework Griffon aims to bring the same productivity gains to desktop development, there are so many traits shared by both frameworks that a Grails developer should be able to pick up the pace quickly.
 </Abstract>
-<Start>0001-01-01T00:00:00</Start>
+<Start>2009-02-01T10:00:00</Start>
 <Difficulty>Beginner</Difficulty>
 <SpeakerName>Andres Almiray</SpeakerName>
 <Technology>Java</Technology>
