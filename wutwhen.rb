@@ -1,0 +1,52 @@
+require 'rubygems'
+require 'sinatra'
+require 'dm-core'
+require 'hpricot'
+require 'open-uri'
+
+DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wutwhen.db")
+DataMapper.auto_upgrade!
+
+before do
+  headers "Content-Type" => "text/html; charset=utf-8"
+end
+
+get "/" do
+ 
+end
+
+
+class Session
+  
+  include DataMapper::Resource
+  
+  property :id,             Serial
+  property :title,          String
+  property :abstract,       Text
+  property :url,            String
+  property :start,          DateTime
+  property :created_at,     DateTime
+  property :updated_at,     DateTime
+  property :speaker_name,   String
+  
+  def self.parse(xml)
+    sessions = []
+    data = Hpricot.parse(xml)
+ 
+    data.search("//session").each do |s|
+       session = Session.new
+       session.title = s.get("title")
+       session.url = s.get("uri")
+       session.abstract = s.get("abstract")
+       sessions << session
+    end
+    sessions
+  end
+  
+end
+
+class Hpricot::Elem
+  def get(field)
+    self.search("/#{field}").first.children.first.raw_string.strip
+  end
+end

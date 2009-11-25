@@ -1,0 +1,40 @@
+<Sessions>
+
+<Session>
+
+<URI>
+/rest/sessions/The-case-for-Griffon-developing-desktop-applications-for-fun-and-profit
+</URI>
+
+<Title>
+The case for Griffon: developing desktop applications for fun and profit
+</Title>
+
+<Abstract>
+Building a desktop application is a hard task, there are some many things to keep track of that many projects simply fail to meet their goals. Setting up the project structure keeping each artifact on a well identified location given its responsibility and type, defining the base schema for managing the application's life cycle, making sure the build is properly setup, and more. These are recurring tasks that should be handled by a tool or better yet, a framework. Griffon is such a framework. Inspired by the Grails framework Griffon aims to bring the same productivity gains to desktop development, there are so many traits shared by both frameworks that a Grails developer should be able to pick up the pace quickly.
+</Abstract>
+<Start>0001-01-01T00:00:00</Start>
+<Difficulty>Beginner</Difficulty>
+<SpeakerName>Andres Almiray</SpeakerName>
+<Technology>Java</Technology>
+<SpeakerURI>/rest/speakers/Andres-Almiray</SpeakerURI>
+</Session>
+
+<Session>
+
+<URI>
+/rest/sessions/Convention-over-Configuration-Applied-to-Net
+</URI>
+<Title>Convention over Configuration Applied to .Net</Title>
+
+<Abstract>
+At some point in the past year we finally realized that we can really apply the design concepts that make Ruby on Rails so great to .Net development. A plethora of OSS projects in the .Net space are exploiting &quot;Convention over Configuration&quot; to reduce friction in tool usage. In this talk I'd like to discuss some examples of CoC usage, how Conventions are applied, lessons learned, and a bit about creating your own conventions inside your application architecture.
+</Abstract>
+<Start>0001-01-01T00:00:00</Start>
+<Difficulty>Intermediate</Difficulty>
+<SpeakerName>Jeremy D. Miller</SpeakerName>
+<Technology>.NET</Technology>
+<SpeakerURI>/rest/speakers/Jeremy-D-Miller</SpeakerURI>
+</Session>
+</Sessions>
+	
