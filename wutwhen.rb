@@ -29,20 +29,33 @@ class Session
   property :updated_at,     DateTime
   property :speaker_name,   String
   
-  def self.parse(xml)
+  def self.parse(conference=CodeMash.new)
     sessions = []
-    data = Hpricot.parse(xml)
+    data = Hpricot.parse WebRequest.get(conference.session_url)
  
     data.search("//session").each do |s|
        session = Session.new
-       session.title = s.get("title")
-       session.url = s.get("uri")
-       session.abstract = s.get("abstract")
-       session.date = s.get_date("start")
-       session.speaker_name = s.get("speakername")
+       map = conference.mappings
+       session.title = s.get(map[:title])
+       session.url = s.get(map[:url])
+       session.abstract = s.get(map[:abstract])
+       session.date = s.get_date(map[:date])
+       session.speaker_name = s.get(map[:speaker_name])
        sessions << session
     end
     sessions
+  end
+  
+end
+
+class CodeMash
+  
+  def session_url
+    "http://codemash.org/rest/sessions"
+  end
+  
+  def mappings
+    {:title=>"title", :url=>"uri", :abstract=>"abstract", :date=>"start", :speaker_name=>"speakername"}
   end
   
 end
@@ -54,5 +67,11 @@ class Hpricot::Elem
   
   def get_date(field)
     DateTime.strptime get(field) + "+00:00" 
+  end
+end
+
+class WebRequest
+  def self.get(path)
+    return open(path)
   end
 end

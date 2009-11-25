@@ -2,6 +2,12 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe "Sessions" do
   
+  describe "When reloading data" do
+    it "saves all sessions retrieved from the url" do
+    
+    end  
+  end
+  
   describe "When loading from XML" do
 
     before(:each) do
@@ -10,7 +16,11 @@ describe "Sessions" do
       while(line = file.gets)
         @session_xml = @session_xml + line
       end
-      @sessions = Session.parse(@session_xml)
+      mash = CodeMash.new
+      mash.stubs(:session_url).returns("http://aol.com")
+      WebRequest.stubs(:get).returns(@session_xml)
+      
+      @sessions = Session.parse mash
     end
 
     it "creates a list with the proper sessions" do
