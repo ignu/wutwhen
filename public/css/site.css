@@ -1,7 +1,8 @@
-body {margin:0px; padding:0px;font:16px helvetica; background:black; color:white;}
+body {margin:0px; padding:0px;font:16px helvetica; background:black; color:white; line-height:1.3;}
 .showAbstract {cursor:pointer; color:000033;}
 .abstract {display:none; cursor:pointer; font: 14px helvetica #999; padding:15px;}
 .session {
+	width:440px;
 	color:#DDD;
 	font-face:bold;
 	background:#212121 url(../images/arrow.png) no-repeat scroll right bottom;
@@ -10,3 +11,4 @@ body {margin:0px; padding:0px;font:16px helvetica; background:black; color:white
 }
 .dark {background:#090909 url(../images/arrow.png) no-repeat scroll right bottom !important;}
 h1 {font: 20px helvetica; font-weight:bold; margin:20px 10px 10px 10px;}
+.speaker {color:#555; font-style:italic;}
