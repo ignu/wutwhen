@@ -5,31 +5,18 @@ require 'hpricot'
 require 'open-uri'
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wutwhen.db")
-DataMapper.auto_upgrade!
 
 before do
   headers "Content-Type" => "text/html; charset=utf-8"
 end
 
 get "/" do
- 
+  @sessions = Session.all
+  haml :sessions
 end
 
-
-class Session
-  
-  include DataMapper::Resource
-  
-  property :id,             Serial
-  property :title,          String
-  property :abstract,       Text
-  property :url,            String
-  property :date,          DateTime
-  property :created_at,     DateTime
-  property :updated_at,     DateTime
-  property :speaker_name,   String
-  
-  def self.parse(conference=CodeMash.new)
+class SessionLoader
+  def parse(conference=CodeMash.new)
     sessions = []
     data = Hpricot.parse WebRequest.get(conference.session_url)
  
@@ -46,6 +33,25 @@ class Session
     sessions
   end
   
+  def reload
+    sessions = self.parse CodeMash.new
+    sessions.each { |s| s.save }
+  end
+end
+
+class Session
+  
+  include DataMapper::Resource
+  
+  property :id,             Serial
+  property :title,          String
+  property :abstract,       Text
+  property :url,            String
+  property :date,          DateTime
+  property :created_at,     DateTime
+  property :updated_at,     DateTime
+  property :speaker_name,   String
+    
 end
 
 class CodeMash
@@ -75,3 +81,5 @@ class WebRequest
     return open(path)
   end
 end
+
+DataMapper.auto_upgrade!
