@@ -51,9 +51,7 @@ class Session
   property :title,          String
   property :abstract,       Text
   property :url,            String
-  property :date,          DateTime
-  property :created_at,     DateTime
-  property :updated_at,     DateTime
+  property :date,           DateTime
   property :speaker_name,   String
     
 end

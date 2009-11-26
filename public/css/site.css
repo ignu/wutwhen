@@ -1,3 +1,11 @@
-body {margin:25px; font:12px helvetica;}
+body {margin:25px; font:16px helvetica;}
 .showAbstract {cursor:pointer; color:000033;}
-.abstract {display:none; }
+.abstract {display:none; cursor:pointer; font: 14px helvetica #999; padding:15px;}
+.session {
+	color:#DDD;
+	font-face:bold;
+	background:#212121 url(../images/arrow.png) no-repeat scroll right bottom;
+	padding:10px;
+	width:95%;
+}
+.dark {background:#090909 url(../images/arrow.png) no-repeat scroll right bottom !important;}
