@@ -15,6 +15,10 @@ get "/" do
   haml :sessions
 end
 
+get "/about" do
+  haml :about
+end
+
 class SessionLoader
   def parse(conference=CodeMash.new)
     sessions = []
