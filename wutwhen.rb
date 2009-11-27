@@ -11,7 +11,7 @@ before do
 end
 
 get "/" do
-  @sessions = Session.all
+  @sessions = Session.upcoming
   haml :sessions
 end
 
@@ -55,7 +55,7 @@ class Session
   property :speaker_name,   String
   
   def self.upcoming
-    return Session.all
+    return Session.all(:date.gt => DateTime.now, :order => [ :date.asc ])
   end
     
 end

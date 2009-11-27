@@ -1,12 +1,15 @@
 %h1 Upcoming Sessions
+-@previous_date = DateTime.new
 -for session in @sessions
+  -if session.date > @previous_date
+    .date
+      =session.date.strftime("%I:%M%p - %m/%d/%Y")
   .session
     .title
       =session.title
       %span.speaker
-        =" - #{session.speaker_name}"      
-    .toggle
-      %input{:type=>"checkbox"}
+        =" - #{session.speaker_name}"
     .abstract
       =session.abstract
     .clear
+    -@previous_date = session.date

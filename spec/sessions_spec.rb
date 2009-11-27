@@ -35,8 +35,9 @@ describe "Sessions" do
     end
       
   end
-  
 end
+
+
 describe "SessionLoader" do
   
   describe "When reloading data" do

@@ -2,7 +2,6 @@ body {margin:0px; padding:0px;font:16px helvetica; background:black; color:white
 .showAbstract {cursor:pointer; color:#000033;}
 .abstract {display:none; cursor:pointer; font: 14px helvetica #999999; padding:15px;float:none;}
 .session {
-	width:440px;
 	color:#DDD;
 	font-face:bold;
 	background:#212121 url(../images/arrow.png) no-repeat scroll right bottom;
@@ -13,5 +12,4 @@ body {margin:0px; padding:0px;font:16px helvetica; background:black; color:white
 h1 {font: 20px helvetica; font-weight:bold; margin:20px 10px 10px 10px;}
 .speaker {color:#555; font-style:italic;}
 .toggle {width:25px; height:25px; background-color:green;}
-.title {float:right;}
-.clear {float:none;}
+.date { color:black; font-size:20px; text-align:center; background-color:white;}
