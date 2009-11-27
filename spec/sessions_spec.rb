@@ -2,6 +2,43 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe "Sessions" do
   
+  before(:each) do
+    @created_sessions = []
+  end
+  
+  after(:each) do
+    @created_sessions.each do |s|
+      s.destroy
+    end   
+  end
+  
+  describe "When getting next sessions" do
+    
+    before(:each) do
+      @past_session = create_session "1/1/2009 09:00"
+      @future_session = create_session "1/1/2013 09:00"
+    end
+      
+    it "should not return sessions that have already passed" do
+      sessions = Session.upcoming
+      sessions.should_not contain(@past_session)
+      sessions.should contain(@future_session)
+    end
+    
+    def create_session(date_string)
+      session = Session.new
+      session.title = "Session #{date_string}"
+      session.date = DateTime.parse(date_string)
+      session.save!
+      @created_sessions << session
+      session
+    end
+      
+  end
+  
+end
+describe "SessionLoader" do
+  
   describe "When reloading data" do
     it "saves all sessions retrieved from the url" do
       loader = SessionLoader.new

@@ -53,6 +53,10 @@ class Session
   property :url,            String
   property :date,           DateTime
   property :speaker_name,   String
+  
+  def self.upcoming
+    return Session.all
+  end
     
 end
 

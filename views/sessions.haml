@@ -4,6 +4,9 @@
     .title
       =session.title
       %span.speaker
-        =" - #{session.speaker_name}"
+        =" - #{session.speaker_name}"      
+    .toggle
+      %input{:type=>"checkbox"}
     .abstract
       =session.abstract
+    .clear
