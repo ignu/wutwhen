@@ -10,6 +10,7 @@
       %span.speaker
         =" - #{session.speaker_name}"
     .abstract
-      =session.abstract
+      :preserve
+        #{session.formatted_abstract}
     .clear
     -@previous_date = session.date

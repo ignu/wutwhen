@@ -28,7 +28,7 @@ Building a desktop application is a hard task, there are some many things to kee
 <Title>Convention over Configuration Applied to .Net</Title>
 
 <Abstract>
-At some point in the past year we finally realized that we can really apply the design concepts that make Ruby on Rails so great to .Net development. A plethora of OSS projects in the .Net space are exploiting &quot;Convention over Configuration&quot; to reduce friction in tool usage. In this talk I'd like to discuss some examples of CoC usage, how Conventions are applied, lessons learned, and a bit about creating your own conventions inside your application architecture.
+At some point in the past year we finally realized that we can really apply the design concepts that make Ruby on Rails so great to .Net development. A plethora of OSS projects in the .Net space are exploiting &quot;Convention over Configuration&quot; to reduce friction in tool usage.<br> In this talk I'd like to discuss some examples of CoC usage, how Conventions are applied, lessons learned, and a bit about creating your own conventions inside your application architecture.
 </Abstract>
 <Start>0001-01-01T00:00:00</Start>
 <Difficulty>Intermediate</Difficulty>

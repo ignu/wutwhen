@@ -3,6 +3,7 @@ require 'sinatra'
 require 'dm-core'
 require 'hpricot'
 require 'open-uri'
+require 'cgi'
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wutwhen.db")
 
@@ -56,6 +57,10 @@ class Session
   
   def self.upcoming
     return Session.all(:date.gt => DateTime.now, :order => [ :date.asc ])
+  end
+  
+  def formatted_abstract
+    CGI.unescapeHTML(abstract)
   end
     
 end

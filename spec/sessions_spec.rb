@@ -53,7 +53,7 @@ describe "SessionLoader" do
   
   describe "When loading from XML" do
 
-    before(:each) do
+    before(:all) do
       @session_xml = ""
       file = File.open("sessions.xml", "r")
       while(line = file.gets)
@@ -76,6 +76,12 @@ describe "SessionLoader" do
       first.abstract.match("Building a desktop application is a").blank?.should be false
       first.date.should == DateTime.civil(y=2009, m=2, d=1, h=10, min=0)
       first.speaker_name.should == "Andres Almiray"
+    end
+    
+    it "html decodes the text" do
+      
+      @sessions.first.abstract.match('&quot;Convention over Configuration&quot;').blank?.should be false
+      @sessions.first.abstract.match('"Convention over Configuration"').blank?.should be false
     end
     
   end
