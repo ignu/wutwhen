@@ -78,12 +78,6 @@ describe "SessionLoader" do
       first.speaker_name.should == "Andres Almiray"
     end
     
-    it "html decodes the text" do
-      
-      @sessions.first.abstract.match('&quot;Convention over Configuration&quot;').blank?.should be false
-      @sessions.first.abstract.match('"Convention over Configuration"').blank?.should be false
-    end
-    
   end
   
 end
