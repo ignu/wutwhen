@@ -1,14 +1,11 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-describe "My App" do
+describe "When viewing open spaces" do
   include Rack::Test::Methods
-
-  def app
-    @app ||= Sinatra::Application
-  end
-
-  it "should respond to /" do
-    get '/'
-    last_response.should be_ok
+  
+  describe "it should return all open spaces" do
+    @open_spaces = []
+    Session.stubs(:all).returns(@open_spaces)
+    it { should assign_to @sessions, :equals=>@open_spaces }
   end
 end

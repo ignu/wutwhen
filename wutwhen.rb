@@ -7,17 +7,9 @@ require 'cgi'
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wutwhen.db")
 
-before do
-  headers "Content-Type" => "text/html; charset=utf-8"
-end
-
 get "/" do
   @sessions = Session.upcoming
   haml :sessions
-end
-
-get "/about" do
-  haml :about
 end
 
 class SessionLoader
@@ -35,6 +27,7 @@ class SessionLoader
        session.speaker_name = s.get(map[:speaker_name])
        sessions << session
     end
+    
     sessions
   end
   

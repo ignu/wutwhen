@@ -7,6 +7,7 @@ require 'spec'
 require 'spec/autorun'
 require 'spec/interop/test'
 require 'mocha'
+require 'shoulda'
 
 # set test environment
 set :environment, :test
