@@ -24,3 +24,8 @@ def contain(element)
     match_found
   end
 end
+
+
+Spec::Runner.configure do |config|
+  config.mock_with :mocha
+end

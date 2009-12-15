@@ -25,6 +25,7 @@ class SessionLoader
        session.abstract = s.get(map[:abstract])
        session.date = s.get_date(map[:date])
        session.speaker_name = s.get(map[:speaker_name])
+       session.room = s.get(map[:room])
        sessions << session
     end
     
@@ -47,6 +48,7 @@ class Session
   property :url,            String
   property :date,           DateTime
   property :speaker_name,   String
+  property :room,           String
   
   def self.upcoming
     return Session.all(:date.gt => DateTime.now, :order => [ :date.asc ])
@@ -65,7 +67,7 @@ class CodeMash
   end
   
   def mappings
-    {:title=>"title", :url=>"uri", :abstract=>"abstract", :date=>"start", :speaker_name=>"speakername"}
+    {:title=>"title", :url=>"uri", :abstract=>"abstract", :date=>"start", :speaker_name=>"speakername", :room=>"room"}
   end
   
 end

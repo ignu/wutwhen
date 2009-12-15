@@ -18,6 +18,7 @@ Building a desktop application is a hard task, there are some many things to kee
 <SpeakerName>Andres Almiray</SpeakerName>
 <Technology>Java</Technology>
 <SpeakerURI>/rest/speakers/Andres-Almiray</SpeakerURI>
+<Room>E</Room>
 </Session>
 
 <Session>
@@ -35,6 +36,7 @@ At some point in the past year we finally realized that we can really apply the 
 <SpeakerName>Jeremy D. Miller</SpeakerName>
 <Technology>.NET</Technology>
 <SpeakerURI>/rest/speakers/Jeremy-D-Miller</SpeakerURI>
+<Room>F</Room>
 </Session>
 </Sessions>
 	

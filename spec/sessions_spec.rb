@@ -55,7 +55,7 @@ describe "SessionLoader" do
 
     before(:all) do
       @session_xml = ""
-      file = File.open("sessions.xml", "r")
+      file = File.open(File.dirname(__FILE__) + "/sessions.xml", "r")
       while(line = file.gets)
         @session_xml = @session_xml + line
       end
@@ -73,9 +73,10 @@ describe "SessionLoader" do
         "The case for Griffon: developing desktop applications for fun and profit"
       first.url.should == 
         "/rest/sessions/The-case-for-Griffon-developing-desktop-applications-for-fun-and-profit"
-      first.abstract.match("Building a desktop application is a").blank?.should be false
+      first.abstract.match("Building a desktop application is a").should_not be_blank
       first.date.should == DateTime.civil(y=2009, m=2, d=1, h=10, min=0)
       first.speaker_name.should == "Andres Almiray"
+      first.room.should == "E"
     end
     
   end
