@@ -7,6 +7,10 @@ require 'cgi'
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wutwhen.db")
 
+before do
+  headers "Content-Type" => "text/html; charset=utf-8"
+end
+
 get "/" do
   @sessions = Session.upcoming
   haml :sessions
@@ -74,7 +78,11 @@ end
 
 class Hpricot::Elem
   def get(field)
-    self.search("/#{field}").first.children.first.raw_string.strip
+    puts "getting #{field}"
+    element = self.search("/#{field}").first
+    if !element.children.nil?
+      element.children.first.raw_string.strip
+    end
   end
   
   def get_date(field)
