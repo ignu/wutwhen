@@ -1,19 +1,25 @@
-require File.join(File.dirname(__FILE__), '..', 'wutwhen.rb')
 
 require 'rubygems'
 require 'sinatra'
 require 'rack/test'
+require 'test/unit'
+require 'rack/test'
+
 require 'spec'
 require 'spec/autorun'
 require 'spec/interop/test'
 require 'mocha'
 require 'shoulda'
 
+
 # set test environment
-set :environment, :test
-set :run, false
-set :raise_errors, true
-set :logging, false
+Sinatra::Base.set :environment, :test
+Sinatra::Base.set :run, false
+Sinatra::Base.set :raise_errors, true
+Sinatra::Base.set :logging, false
+
+
+require 'application'
 
 def contain(element) 
   simple_matcher("contain #{element}") do |actual|

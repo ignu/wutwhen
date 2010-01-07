@@ -1,5 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-require 'wutwhen'
+require 'application'
 run Sinatra::Application
 
