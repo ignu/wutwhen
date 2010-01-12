@@ -4,11 +4,11 @@
   -if session.date > @previous_date
     .date
       =session.date.strftime("%I:%M%p - %m/%d/%Y")
-  .session
+  .session{:class=>session.open_space? ? "open-space" : "session"}
     .title
       =session.title
       %span.speaker
-        =" - #{session.speaker_name}"
+        =" - #{session.speaker_detail}"
     .abstract
       :preserve
         #{session.formatted_abstract}

@@ -78,6 +78,13 @@ describe "SessionLoader" do
       first.speaker_name.should == "Andres Almiray"
       first.room.should == "E"
     end
+
+    it "is an open space if no speaker_name is defined" do
+      session = Session.new
+      session.open_space?.should == true
+      session.speaker_name = "john"
+      session.open_space?.should == false
+    end
     
   end
   

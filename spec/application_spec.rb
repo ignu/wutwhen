@@ -9,11 +9,35 @@ describe "When viewing open spaces" do
   
   describe "should be able to get the list of open spaces" do
 
-    it "should return an open spaces form" do
-      get '/admin/openspaces'
-      last_response.ok?.should be true
+    before(:each) do
+      @open_spaces = [Session.new]
+      @open_spaces.first.title = "Fred"
+      Session.expects(:open_spaces).returns(@open_spaces)
     end
     
+    it "should return an open spaces form" do
+      get '/admin/openspaces'
+      
+      last_response.ok?.should be true
+      last_response.body.should match 'Open Spaces'
+      last_response.body.should match 'Fred'
+    end
+
+  end
+  
+  describe "should be able to save new open space" do
+
+    before(:each) do
+    end
+    
+    it "should return an open spaces form" do
+      hash = {:session => {:title=>"Being cool", :date=>"1/1/2009"}}
+      session = stub(:session)
+      Session.expects(:new).returns(session)
+      session.expects(:save!)
+      post '/admin/openspaces', hash
+    end
+
   end
   
 end

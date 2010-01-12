@@ -1,0 +1,17 @@
+
+%h1 Open Spaces
+-for session in @openspaces
+  =session.title
+  =session.date
+  %form{:method=>"post", :action=>"/admin/openspaces/delete"}
+    %input{:type=>"hidden", :value=>session.id, :name=>"session_id"}
+    %input{:type=>"submit", :value=>"delete"}
+
+%form{:method=>"post", :action=>"/admin/openspaces"}
+  Title:
+  %input{:type=>"text", :name=>"session[title]"}
+  Date:
+  %input{:type=>"text", :name=>"session[date]"}
+  Abstract:
+  %textarea{:name=>"session[abstract]"}
+  %input{:type=>"submit", :value=>"Submit"}
