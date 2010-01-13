@@ -4,6 +4,7 @@ require 'dm-core'
 require 'hpricot'
 require 'open-uri'
 require 'cgi'
+require 'builder'
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/wutwhen.db")
 
@@ -37,6 +38,9 @@ post "/admin/openspaces/delete" do
 end
 
 get "/openspaces" do
+    xml = Builder::XmlMarkup.new
+    xml.StartDate("2011-02-01T10:00:00")
+    xml.target!
 end
 
 class SessionLoader
