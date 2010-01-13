@@ -1,6 +1,6 @@
-body {margin:0px; padding:0px;font:1.8em verdana, arial, helvetica; background:black; color:white; line-height:1.3;}
+body {margin:0px; padding:0px;font:1.8em verdana, arial, helvetica; background:black; color:white;}
 .showAbstract {cursor:pointer; color:#000033;}
-.abstract {display:none; cursor:pointer; font: 1.0em helvetica !important; padding:15px;float:none;}
+.abstract {display:none; cursor:pointer; font: 1.0em helvetica !important; padding:15px;float:none; line-height:}
 .session {
 	color:#DDD;
 	font-face:bold;
@@ -14,3 +14,4 @@ h1 {font: 2.0em helvetica; font-weight:bold; margin:20px 10px 10px 10px;}
 .toggle {width:25px; height:25px; background-color:green;}
 .date { color:black; font-size:24px; text-align:center; background-color:#888888; padding:5px;}
 .open-space { background-color:#002400 !important;}
+.room{margin-top:15px;font-size:1.0em; color:#777;}
