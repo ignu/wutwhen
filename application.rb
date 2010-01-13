@@ -36,6 +36,9 @@ post "/admin/openspaces/delete" do
   "Deleted"
 end
 
+get "/openspaces" do
+end
+
 class SessionLoader
   def parse(conference=CodeMash.new)
     sessions = []

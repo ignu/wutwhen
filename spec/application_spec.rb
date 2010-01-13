@@ -25,7 +25,7 @@ describe "When viewing open spaces" do
 
   end
   
-  describe "should be able to save new open space" do
+  describe "saving a new open space" do
 
     before(:each) do
     end
@@ -39,5 +39,14 @@ describe "When viewing open spaces" do
     end
 
   end
+  
+  describe "getting open spaces rss" do
+    it "should return an open space rss feed" do
+      get '/openspaces'
+      last_response.ok?.should be true
+    end
+  end
+  
+  
   
 end
