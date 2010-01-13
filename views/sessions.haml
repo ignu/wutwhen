@@ -12,8 +12,9 @@
     .abstract
       :preserve
         #{session.formatted_abstract}
-      .room
-        Room:
-        =session.room
+      -if(!session.room.nil?)
+        .room
+          Room:
+          =session.room
     .clear
     -@previous_date = session.date

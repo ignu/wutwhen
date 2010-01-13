@@ -42,10 +42,19 @@ describe "When viewing open spaces" do
   
   describe "getting open spaces rss" do
     it "should return an open space rss feed" do
+      session = Session.new(
+        :date => DateTime.parse("02/01/2011 10:00"),
+        :title => "Creating Energon", 
+        :abstract => "Fred")
+        
+      Session.expects(:open_spaces).returns([session])
       get '/openspaces'
       last_response.ok?.should be true
-      last_response.body.should match '<Start>2011-02-01T10:00:00</Start>'
+      last_response.body.should match '<Sessions>'
+      last_response.body.should match '<Session>'
+      last_response.body.should match '<Start>2011-02-01T10:00:00'
       last_response.body.should match '<Title>Creating Energon</Title>'
+      last_response.body.should match '<Abstract>Fred</Abstract>'
     end
   end
   

@@ -38,9 +38,18 @@ post "/admin/openspaces/delete" do
 end
 
 get "/openspaces" do
-    xml = Builder::XmlMarkup.new
-    xml.StartDate("2011-02-01T10:00:00")
-    xml.target!
+  xml = Builder::XmlMarkup.new
+  sessions = Session.open_spaces
+  xml.Sessions do 
+    sessions.each do |session|
+      xml.Session do 
+        xml.Start(session.date)
+        xml.Title(session.title)
+        xml.Abstract(session.abstract)        
+      end
+    end
+  end
+  xml.target!
 end
 
 class SessionLoader
