@@ -44,7 +44,8 @@ describe "When viewing open spaces" do
     it "should return an open space rss feed" do
       get '/openspaces'
       last_response.ok?.should be true
-      last_response.body.should match '<StartDate>2011-02-01T10:00:00</StartDate>'
+      last_response.body.should match '<Start>2011-02-01T10:00:00</Start>'
+      last_response.body.should match '<Title>Creating Energon</Title>'
     end
   end
   
